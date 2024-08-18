@@ -67,7 +67,7 @@ productoria (x:xs) = x * productoria xs
 
 factorial' :: Int -> Int --2.4
 factorial' 0 = 1
-factorial' n = n * n_factorial (n-1)
+factorial' n = n * factorial' (n-1)
 
 --Main> factorial' 3
 --6
