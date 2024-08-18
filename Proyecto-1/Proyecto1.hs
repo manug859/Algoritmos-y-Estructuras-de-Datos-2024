@@ -36,6 +36,14 @@ valorAbsoluto n | n<0 = -n
 --Main> valorAbsoluto 3
 --3
 
+sumatoria :: [Int] -> Int
+sumatoria [] = 0
+sumatoria (x:xs) = x + sumatoria xs
+
 n_factorial :: Int -> Int
 n_factorial 0 = 1
 n_factorial n = n * n_factorial (n-1)
+
+promedio :: [Int] -> Int 
+promedio [] = 0
+promedio xs = div (sumatoria xs) (length xs)
