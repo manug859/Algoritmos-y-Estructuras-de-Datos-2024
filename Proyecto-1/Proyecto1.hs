@@ -42,19 +42,43 @@ paratodo :: [Bool] -> Bool--2.1
 paratodo [] = True
 paratodo (x:xs) = x==True && paratodo xs
 
+--Main> paratodo [True, True, True]
+--True
+--Main> paratodo [True, False, True]
+--False
+
 sumatoria :: [Int] -> Int --2.2
 sumatoria [] = 0
 sumatoria (x:xs) = x + sumatoria xs
+
+--Main> sumatoria [1,2,3]
+--6
+--Main> sumatoria [1,2,3,4]
+--10
 
 productoria :: [Int] -> Int --2.3
 productoria [] = 1
 productoria (x:xs) = x * productoria xs 
 
+--Main> productoria [1,2,3]
+--6
+--Main> productoria [1,2,3,4]
+--24
+
 factorial' :: Int -> Int --2.4
 factorial' 0 = 1
 factorial' n = n * n_factorial (n-1)
+
+--Main> factorial' 3
+--6
+--Main> factorial' 5
+--120
 
 promedio :: [Int] -> Int --2.5
 promedio [] = 0
 promedio xs = div (sumatoria xs) (length xs)
 
+--Main> promedio [1,2,3]
+--2
+--Main> promedio [7,7,5]
+--6
