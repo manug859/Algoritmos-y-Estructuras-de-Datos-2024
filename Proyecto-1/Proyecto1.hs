@@ -94,4 +94,4 @@ promedio xs = div (sumatoria xs) (length xs)
 
 mayorQueCero :: [Int] -> Bool
 mayorQueCero [] = True
-mayorQueCero (x:xs) = x == 0 && mayorQueCero xs 
+mayorQueCero (x:xs) = x > 0 && mayorQueCero xs 
