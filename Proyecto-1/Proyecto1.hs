@@ -86,12 +86,24 @@ promedio xs = div (sumatoria xs) (length xs)
 --Ejercicio 3
 --"Identifica las variables libres de cada expresión y el tipo de cada una."
 
---3.a)[4a] No tiene variables libres, solo tiene una constante en el término que es "0". El tipo de ésta constante es Int.
+--3.a)[4a] La variable libre es la lista de [Int], además tiene una constante en el término que es "0". El tipo de ésta constante es Int.
 --3.a)[4b] La variable libre es "x" siendo esta del tipo Int
---3.a)[4c] Tampoco tiene variables libres, solo la ligada "i", del tipo Int.
+--3.a)[4d] La variable libre es la lista de [Int].
 
---3.b)
+--3.b)[4a] ⟨ ∀ i : 0 ≤ i < #xs : xs.i > 0 ⟩
 
 mayorQueCero :: [Int] -> Bool
 mayorQueCero [] = True
 mayorQueCero (x:xs) = x > 0 && mayorQueCero xs 
+
+--3.b)[4b] ⟨ ∃ i : 0 ≤ i < #xs : xs.i = x ⟩
+
+igualAn :: [Int] -> Int -> Bool
+igualAn [] n = False
+igualAn (x:xs) n = x == n || igualAn xs
+
+--3.b)[4d] ⟨ ∀ i : 0 ≤ i < #xs − 1 : xs.i = xs.(i + 1) ⟩
+
+todosIguales :: [Int] -> Bool
+todosIguales [] = True
+todosIguales (y:(x:xs)) = y == x || todosIguales xs
