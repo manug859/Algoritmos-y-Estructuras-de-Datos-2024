@@ -36,3 +36,6 @@ valorAbsoluto n | n<0 = -n
 --Main> valorAbsoluto 3
 --3
 
+n_factorial :: Int -> Int
+n_factorial 0 = 1
+n_factorial n = n * (n-1)
