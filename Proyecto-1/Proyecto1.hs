@@ -82,3 +82,16 @@ promedio xs = div (sumatoria xs) (length xs)
 --2
 --Main> promedio [7,7,5]
 --6
+
+--Ejercicio 3
+--"Identifica las variables libres de cada expresión y el tipo de cada una."
+
+--3.a)[4a] No tiene variables libres, solo tiene una constante en el término que es "0". El tipo de ésta constante es Int.
+--3.a)[4b] La variable libre es "x" siendo esta del tipo Int
+--3.a)[4c] Tampoco tiene variables libres, solo la ligada "i", del tipo Int.
+
+--3.b)
+
+mayorQueCero :: [Int] -> Bool
+mayorQueCero [] = True
+mayorQueCero (x:xs) = x == 0 && mayorQueCero xs 
