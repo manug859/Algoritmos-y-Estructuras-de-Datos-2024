@@ -38,4 +38,4 @@ valorAbsoluto n | n<0 = -n
 
 n_factorial :: Int -> Int
 n_factorial 0 = 1
-n_factorial n = n * (n-1)
+n_factorial n = n * n_factorial (n-1)
