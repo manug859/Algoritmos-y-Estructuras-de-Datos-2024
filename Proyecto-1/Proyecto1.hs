@@ -96,14 +96,39 @@ mayorQueCero :: [Int] -> Bool
 mayorQueCero [] = True
 mayorQueCero (x:xs) = x > 0 && mayorQueCero xs 
 
+
 --3.b)[4b] ⟨ ∃ i : 0 ≤ i < #xs : xs.i = x ⟩
 
 igualAn :: [Int] -> Int -> Bool
 igualAn [] n = False
-igualAn (x:xs) n = x == n || igualAn xs
+igualAn (x:xs) n = x == n || igualAn xs n
+
 
 --3.b)[4d] ⟨ ∀ i : 0 ≤ i < #xs − 1 : xs.i = xs.(i + 1) ⟩
 
 todosIguales :: [Int] -> Bool
 todosIguales [] = True
+todosIguales [x] = False
 todosIguales (y:(x:xs)) = y == x || todosIguales xs
+
+--3.c) Evaluá las funciones tomando como argumento los valores señalados en 5.
+
+--mayorQueCero [-5, -3, 4, 8]
+--False
+--mayorQueCero [11, 2, 5, 8]
+--True
+
+
+--igualAn [-5, -3, 4, 8] 4
+--True
+--igualAn [11, 2, 5, 8] 4
+--False
+
+
+--todosIguales [1,1,1,1]
+--True
+--todosIguales [-5, -3, 4, 8]
+--False
+--todosIguales [11, 2, 5, 8]
+--False
+
