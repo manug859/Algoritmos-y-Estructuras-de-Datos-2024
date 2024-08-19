@@ -141,7 +141,7 @@ todosIguales (y:(x:xs)) = y == x || todosIguales xs
 
 --[4.b]
 
-factorial'' :: Int -> Int
+factorial'' :: Int -> Int 
 factorial'' 0 = 1
 factorial'' n = n * factorial'' (n-1)
 
@@ -160,6 +160,6 @@ minLista [] = maxBound
 minLista [y] = y
 minLista (y:(x:xs)) = min (minLista xs) (min y x)
 
-minMayorQueMax :: [Int] -> [Int] -> Bool
+minMayorQueMax :: [Int] -> [Int] -> Bool 
 minMayorQueMax [] [] = True
 minMayorQueMax xs ys = maxLista xs < minLista ys
