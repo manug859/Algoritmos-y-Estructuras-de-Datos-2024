@@ -152,6 +152,7 @@ promedio' xs = div (sumatoria xs) (length xs)
 --función auxiliar minMayorQueMax
 maxLista :: [Int] -> Int
 maxLista [] = minBound
+maxLista [y] = y
 maxLista (y:(x:xs)) = max (maxLista xs) (max y x)
 
 minMayorQueMax :: [Int] -> [Int] -> Bool
