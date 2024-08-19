@@ -155,5 +155,11 @@ maxLista [] = minBound
 maxLista [y] = y
 maxLista (y:(x:xs)) = max (maxLista xs) (max y x)
 
+minLista :: [Int] -> Int
+minLista [] = maxBound
+minLista [y] = y
+minLista (y:(x:xs)) = min (minLista xs) (min y x)
+
 minMayorQueMax :: [Int] -> [Int] -> Bool
 minMayorQueMax [] [] = True
+minMayorQueMax xs ys = maxLista xs < minLista ys
