@@ -164,27 +164,38 @@ minMayorQueMax :: [Int] -> [Int] -> Bool
 minMayorQueMax [] [] = True
 minMayorQueMax xs ys = maxlista xs < minlista ys
 
+--minMayorQueMax [-3, 9, 8] [6, 7, 8]
+--True
+--minMayorQueMax [-3, 9, 8] [6, 7, 8, 9]
+--False
+
 prodIndiceigaN :: [Int] -> [Int] -> Int -> Bool
 prodIndiceigaN [] [] n = False
 prodIndiceigaN xs [] n = False
 prodIndiceigaN [] ys n = False
 prodIndiceigaN [x] [y] n = False
 prodIndiceigaN (x:xs) (y:ys) n = length xs * length ys == n || prodIndiceigaN xs ys n
+--preguntar por este, ya que no usa listas!!
+
 
 --LAB 5
 
 todos :: [Bool] -> Bool
 todos [] = True
 todos (x:xs) = x == True && todos xs
+--Main> todos [True, True, True]
+--True
+--Main> todos [True, False, True]
+--False
 
 --LAB 6
 
 
 --a)
 
---a.1) 
---a.2)
---a.3)
+--a.1) xs es la variable libre del predicado.
+--a.2) También es xs.
+--a.3) xs es la variable libre del predicado.
 
 --b)
 
@@ -207,3 +218,74 @@ sumaPosicionesPares [] = 0
 sumaPosicionesPares [x] = x
 sumaPosicionesPares (x:_:xs) = x + sumaPosicionesPares xs
 
+--LAB 7 & 8
+
+--a)
+paratodo' :: [a] -> (a -> Bool) -> Bool
+paratodo' [] p = True
+paratodo' (x:xs) p = p x && paratodo' xs p
+--Main> paratodo' [1,2,3] esCero
+--False
+--Main> paratodo' [1,2,3] esPositivo
+--True
+
+--b)
+existe' :: [a] -> (a -> Bool) -> Bool
+existe' [] p = False
+existe' (x:xs) p = p x || existe' xs p
+--Main> existe' [1,-2,-31] esPositivo
+--True
+--Main> existe' [1,2,1] esCero
+--False
+
+--c)
+sumatoria' :: [a] -> (a -> Int) -> Int
+sumatoria' [] p = 0
+sumatoria' (x:xs) p = p x + sumatoria' xs p
+--Main> sumatoria' [7,-2,3] valorAbsoluto
+--12
+--Main> sumatoria' [7,1,3] factorial
+--5047
+
+--d)
+productoria' :: [a] -> (a -> Int) -> Int
+productoria' [] p = 1
+productoria' (x:xs) p = p x * productoria' xs p
+--productoria' [1,2,3] factorial
+--12
+--productoria' [1,-8,3] valorAbsoluto
+--24
+
+--LAB 9
+
+--a)
+todosPares :: [Int] -> Bool
+todosPares [] = True
+todosPares (x:xs) = even x && todosPares xs
+
+--b.0.1 función auxiliar hayMultiplo)
+esMultiplo :: Int -> Int -> Bool
+esMultiplo n k = k `mod` n == 0
+
+--b)
+hayMultiplo :: Int -> [Int] -> Bool
+hayMultiplo n [] = False
+hayMultiplo n (x:xs) = esMultiplo n x || hayMultiplo n xs
+
+--c)
+sumaCuadrados :: Int -> Int
+sumaCuadrados 0 = 0
+sumaCuadrados n = sumatoria' [0..n] (^2)
+
+--d.0.1)
+divisor :: Int -> Int -> Bool
+divisor n k = k `mod` n == 0
+
+--d)
+existeDivisor :: Int -> [Int] -> Bool
+existeDivisor n [] = False
+existeDivisor n (x:xs) = existe' xs (divisor n)
+
+--e)
+esPrimo :: Int -> Bool
+esPrimo
