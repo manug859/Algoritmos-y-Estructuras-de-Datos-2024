@@ -150,16 +150,41 @@ promedio' [] = 0
 promedio' xs = div (sumatoria xs) (length xs)
 
 --función auxiliar minMayorQueMax
-maxLista :: [Int] -> Int
-maxLista [] = minBound
-maxLista [y] = y
-maxLista (y:(x:xs)) = max (maxLista xs) (max y x)
+maxlista :: [Int] -> Int
+maxlista [] = minBound
+maxlista [y] = y
+maxlista (y:(x:xs)) = max (maxlista xs) (max y x)
 
-minLista :: [Int] -> Int
-minLista [] = maxBound
-minLista [y] = y
-minLista (y:(x:xs)) = min (minLista xs) (min y x)
+minlista :: [Int] -> Int
+minlista [] = maxBound
+minlista [y] = y
+minlista (y:(x:xs)) = min (minlista xs) (min y x)
 
 minMayorQueMax :: [Int] -> [Int] -> Bool 
 minMayorQueMax [] [] = True
-minMayorQueMax xs ys = maxLista xs < minLista ys
+minMayorQueMax xs ys = maxlista xs < minlista ys
+
+prodIndiceigaN :: [Int] -> [Int] -> Int -> Bool
+prodIndiceigaN [] [] n = False
+prodIndiceigaN xs [] n = False
+prodIndiceigaN [] ys n = False
+prodIndiceigaN [x] [y] n = False
+prodIndiceigaN (x:xs) (y:ys) n = length xs * length ys == n || prodIndiceigaN xs ys n
+
+--LAB 5
+
+todos :: [Bool] -> Bool
+todos [] = True
+todos (x:xs) = x == True && todos xs
+
+--LAB 6
+
+--a)
+
+--a.1) 
+--a.2)
+--a.3)
+
+--b)
+
+maxlista' :: [Int]
