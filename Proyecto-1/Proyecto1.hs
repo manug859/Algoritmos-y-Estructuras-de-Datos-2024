@@ -65,13 +65,13 @@ productoria (x:xs) = x * productoria xs
 --Main> productoria [1,2,3,4]
 --24
 
-factorial' :: Int -> Int --2.4
-factorial' 0 = 1
-factorial' n = n * factorial' (n-1)
+factorial :: Int -> Int --2.4
+factorial 0 = 1
+factorial n = n * factorial (n-1)
 
---Main> factorial' 3
+--Main> factorial 3
 --6
---Main> factorial' 5
+--Main> factorial 5
 --120
 
 promedio :: [Int] -> Int --2.5
@@ -140,10 +140,6 @@ todosIguales (y:(x:xs)) = y == x || todosIguales xs
 --4.a)[7d] La variable libre es n siendo esta del tipo Int.
 
 --[4.b]
-
-factorial'' :: Int -> Int 
-factorial'' 0 = 1
-factorial'' n = n * factorial'' (n-1)
 
 promedio' :: [Int] -> Int
 promedio' [] = 0
@@ -279,13 +275,40 @@ sumaCuadrados n = sumatoria' [0..n] (^2)
 
 --d.0.1)
 divisor :: Int -> Int -> Bool
-divisor n k = k `mod` n == 0
+divisor n k = mod n k == 0
 
 --d)
 existeDivisor :: Int -> [Int] -> Bool
-existeDivisor n [] = False
-existeDivisor n (x:xs) = existe' xs (divisor n)
+existeDivisor n xs = existe' xs (divisor n)
 
 --e)
 esPrimo :: Int -> Bool
-esPrimo
+esPrimo n = (n>1) && not(existeDivisor n [2..n-1])
+
+--f)
+factorial' :: Int -> Int
+factorial' n = factorial n
+
+--g)
+multiplicaPrimos :: [Int] -> Int
+multiplicaPrimos xs = productoria (filter esPrimo xs) 
+
+--h.0.2)
+pertenece :: Int -> [Int] -> Bool
+pertenece n [] = False
+pertenece n (xs) = any (== n) xs
+
+--h.0.1)
+fib :: Int -> Int
+fib 0 = 0
+fib 1 = 1
+fib n = fib (n-1) + fib (n-2)
+
+--h)
+esFib :: Int -> Bool
+esFib n = pertenece n (map fib [n..n+1])
+
+--i)
+todosFib :: [Int] -> Bool
+todosFib xs = paratodo' xs esFib
+
