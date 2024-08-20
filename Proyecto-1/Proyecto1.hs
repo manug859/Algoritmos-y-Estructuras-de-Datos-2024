@@ -187,4 +187,15 @@ todos (x:xs) = x == True && todos xs
 
 --b)
 
-maxlista' :: [Int]
+{-
+maxlista' :: [Int] -> Int
+maxlista' [] = minBound
+maxlista' [n] = n
+maxlista' (n:(x:xs)) = max (maxlista' xs) (max n x)
+-}
+
+paresDeLista :: [Int] -> [Int]
+paresDeLista xs = filter even xs
+
+--prodPares :: [Int] -> Int
+--prodPares xs = map productoria (paresDeLista xs)
