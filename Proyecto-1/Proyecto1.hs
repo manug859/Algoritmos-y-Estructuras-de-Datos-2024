@@ -179,6 +179,7 @@ todos (x:xs) = x == True && todos xs
 
 --LAB 6
 
+
 --a)
 
 --a.1) 
@@ -194,8 +195,15 @@ maxlista' [n] = n
 maxlista' (n:(x:xs)) = max (maxlista' xs) (max n x)
 -}
 
+--funcion auxiliar
 paresDeLista :: [Int] -> [Int]
 paresDeLista xs = filter even xs
 
---prodPares :: [Int] -> Int
---prodPares xs = map productoria (paresDeLista xs)
+prodPares :: [Int] -> Int
+prodPares xs = product (paresDeLista xs)
+
+sumaPosicionesPares :: [Int] -> Int
+sumaPosicionesPares [] = 0
+sumaPosicionesPares [x] = x
+sumaPosicionesPares (x:_:xs) = x + sumaPosicionesPares xs
+
