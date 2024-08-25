@@ -258,20 +258,33 @@ productoria' (x:xs) p = p x * productoria' xs p
 todosPares :: [Int] -> Bool
 todosPares [] = True
 todosPares (x:xs) = even x && todosPares xs
+--Main> todosPares [2,4,6]
+--True
+--Main> todosPares [2,4,5]
+--False
 
 --b.0.1 función auxiliar hayMultiplo)
 esMultiplo :: Int -> Int -> Bool
 esMultiplo n k = k `mod` n == 0
 
+
 --b)
 hayMultiplo :: Int -> [Int] -> Bool
 hayMultiplo n [] = False
 hayMultiplo n (x:xs) = esMultiplo n x || hayMultiplo n xs
+--Main> hayMultiplo 2 [1,3,5]
+--False
+--Main> hayMultiplo 2 [1,3,4]
+--True
 
 --c)
 sumaCuadrados :: Int -> Int
 sumaCuadrados 0 = 0
-sumaCuadrados n = sumatoria' [0..n] (^2)
+sumaCuadrados n = sumatoria' [1..n] (^2)
+--Main> sumaCuadrados 3
+--14
+--Main> sumaCuadrados 4
+--30
 
 --d.0.1)
 divisor :: Int -> Int -> Bool
@@ -280,35 +293,113 @@ divisor n k = mod n k == 0
 --d)
 existeDivisor :: Int -> [Int] -> Bool
 existeDivisor n xs = existe' xs (divisor n)
+--Main> existeDivisor 4 [2,3,5]
+--True
+--Main> existeDivisor 4 [3,5]
+--False
 
 --e)
 esPrimo :: Int -> Bool
 esPrimo n = (n>1) && not(existeDivisor n [2..n-1])
+--Main> esPrimo 5
+--True
+--Main> esPrimo 4
+--False
 
 --f)
 factorial' :: Int -> Int
 factorial' n = factorial n
+--Main> factorial' 3
+--6
+--Main> factorial' 5
+--120
 
 --g)
 multiplicaPrimos :: [Int] -> Int
 multiplicaPrimos xs = productoria (filter esPrimo xs) 
+--Main> multiplicaPrimos [1,2,3,4,5]
+--30
+--Main> multiplicaPrimos [1,2,3,4,5,6,7]
+--210
 
 --h.0.2)
 pertenece :: Int -> [Int] -> Bool
 pertenece n [] = False
-pertenece n (xs) = any (== n) xs
+pertenece n (x:xs) = n == x || pertenece n xs
 
 --h.0.1)
 fib :: Int -> Int
-fib 0 = 0
-fib 1 = 1
+fib 1 = 0
+fib 2 = 1
 fib n = fib (n-1) + fib (n-2)
+--Main> fib 8
+--13
+--Main> fib 20
+--4181
 
---h)
 esFib :: Int -> Bool
-esFib n = pertenece n (map fib [n..n+1])
+esFib n = pertenece n (takeWhile (<= n) (map fib [1..]))
+--Main> esFib 13
+--True
+--Main> esFib 14
+--False
 
 --i)
 todosFib :: [Int] -> Bool
 todosFib xs = paratodo' xs esFib
+--Main> todosFib [1,2,3,5]
+--True
+--Main> todosFib [1,2,3,4]
+--False
+
+--LAB 10
+
+--10.a)
+dupLista :: [Int] -> [Int]
+dupLista [] = []
+dupLista (x:xs) = (x * 2) : dupLista xs
+
+--10.b)
+dupLista' :: [Int] -> [Int]
+dupLista' xs = map (*2) xs
+
+--LAB 11
+
+--11.a)
+devuelvePrimos :: [Int] -> [Int]
+devuelvePrimos [] = []
+devuelvePrimos (x:xs) | (esPrimo x) = x : devuelvePrimos xs
+                      | otherwise = devuelvePrimos xs
+
+--11.b)
+devuelvePrimos' :: [Int] -> [Int]
+devuelvePrimos' xs = filter (esPrimo) xs
+
+--11.c) Preguntar!!
+
+--LAB 12
+
+--12.a)
+primIgualesA :: Eq a => a -> [a] -> [a]
+primIgualesA n [] = []
+primIgualesA n (x:xs) | (n==x) = x : primIgualesA n xs
+                     | otherwise = []
+
+--12.b)
+primIgualesA' :: Eq a => a -> [a] -> [a]
+primIgualesA' n xs = takeWhile (==n) xs
+
+--LAB 13 
+
+--13.a)
+primIguales :: Eq a => [a] -> [a]
+primIguales [] = []
+primIguales (x:xs) | (head xs == x) = x : primIguales xs
+                   | otherwise = x:[]
+
+--13.b)
+primIguales' :: Eq a => [a] -> [a]
+primIguales' xs = primIgualesA' (head xs) xs
+
+--PUNTOS ESTRELLA
 
