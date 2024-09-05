@@ -6,8 +6,9 @@ iga :: Int -> [Int] -> Bool
 iga e [] = True
 iga e (x:xs) = e == x && iga e xs
 
-exp :: Int -> Int -> Int
-exp n k= n ^ k
+exp' :: Int -> Int -> Int
+exp' n 0 = 1
+exp' n k = n * exp' n (k-1)
 
 sum_par :: [Int] -> Int
 sum_par [] = 0
@@ -108,6 +109,3 @@ contar_futbolistas' xs z = length (filter (pertZona (z)) xs)
 sum_pot :: Int -> Int -> Int
 sum_pot n 0 = 1
 sum_pot n k = n^k + sum_pot n (k-1)
-
-
-aprox_pi :: Int -> Float
