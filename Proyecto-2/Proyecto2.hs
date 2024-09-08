@@ -107,5 +107,5 @@ contar_futbolistas' xs z = length (filter (pertZona (z)) xs)
 --Lab 6
 
 sum_pot :: Int -> Int -> Int
-sum_pot n 0 = 1
-sum_pot n k = n^k + sum_pot n (k-1)
+sum_pot x 0 = 0
+sum_pot x n = exp' x n + sum_pot x (n-1) 
