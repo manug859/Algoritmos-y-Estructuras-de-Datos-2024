@@ -109,3 +109,19 @@ contar_futbolistas' xs z = length (filter (pertZona (z)) xs)
 sum_pot :: Int -> Int -> Int
 sum_pot x 0 = 0
 sum_pot x n = sum_pot x (n-1) + exp' x (n-1)
+
+aprox_pi :: Int -> Float
+aprox_pi n = 4 * aprox_pi' n
+
+aprox_pi' :: Int -> Float
+aprox_pi' 0 = 0
+aprox_pi' n = aprox_pi' (n-1) + ((-1)^(n-1))/(2*(fromIntegral n)-1)
+
+cuad :: Int -> Int
+cuad 0 = 0
+cuad n = cuad (n-1) + 2*(n-1) + 1 
+
+cubo :: Int -> Int
+cubo 0 = 0
+cubo n = cubo (n-1) + (3*cuad (n-1)) + 3*(n-1) + 1
+
