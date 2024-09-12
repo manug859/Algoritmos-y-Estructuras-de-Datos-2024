@@ -125,3 +125,10 @@ cubo :: Int -> Int
 cubo 0 = 0
 cubo n = cubo (n-1) + (3*cuad (n-1)) + 3*(n-1) + 1
 
+auxProd :: [Int] -> Int
+auxProd [] = 1
+auxProd (x:xs) = x * auxProd xs
+
+funcion :: [Int] -> Bool
+funcion [] = False
+funcion (x:xs) = x == auxProd xs || funcion xs
