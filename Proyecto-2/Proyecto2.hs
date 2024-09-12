@@ -132,3 +132,15 @@ auxProd (x:xs) = x * auxProd xs
 funcion :: [Int] -> Bool
 funcion [] = False
 funcion (x:xs) = x == auxProd xs || funcion xs
+
+iguales :: Eq a => [a] -> Bool
+iguales [] = True
+iguales (x:y:xs) = x == y && iguales xs
+
+minimo :: [Int] -> Int
+minimo [x] = x
+minimo (x:xs) = min x (minimo xs)
+
+creciente :: [Int] -> Bool
+creciente [] = True
+creciente (x:y:xs) = x < y && creciente xs
