@@ -149,3 +149,4 @@ prodP :: [Int] -> [Int] -> Int
 prodP [] _ = 0
 prodP _ [] = 0
 prodP (x:xs) (y:ys) = x*y + prodP xs ys
+
