@@ -150,3 +150,9 @@ prodP [] _ = 0
 prodP _ [] = 0
 prodP (x:xs) (y:ys) = x*y + prodP xs ys
 
+psum :: [Int] -> Bool
+psum xs = gpsum 0 xs
+
+gpsum :: Int -> [Int] -> Bool
+gpsum n [] = (n>=0)
+gpsum n (x:xs) = (n>=0) && gpsum (n+x) xs
