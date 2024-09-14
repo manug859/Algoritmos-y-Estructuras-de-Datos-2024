@@ -163,3 +163,10 @@ sum_ant xs = gsum_ant 0 xs
 gsum_ant :: Int -> [Int] -> Bool
 gsum_ant n [] = False
 gsum_ant n (x:xs) = n==x || gsum_ant (n+x) xs
+
+sum8 :: [Int] -> Bool
+sum8 xs = gsum8 0 xs
+
+gsum8 :: Int -> [Int] -> Bool
+gsum8 n [] = n == 8
+gsum8 n (x:xs) = n==8 || gsum8 (n+x) xs
