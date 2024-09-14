@@ -156,3 +156,10 @@ psum xs = gpsum 0 xs
 gpsum :: Int -> [Int] -> Bool
 gpsum n [] = (n>=0)
 gpsum n (x:xs) = (n>=0) && gpsum (n+x) xs
+
+sum_ant :: [Int] -> Bool
+sum_ant xs = gsum_ant 0 xs
+
+gsum_ant :: Int -> [Int] -> Bool
+gsum_ant n [] = False
+gsum_ant n (x:xs) = n==x || gsum_ant (n+x) xs
