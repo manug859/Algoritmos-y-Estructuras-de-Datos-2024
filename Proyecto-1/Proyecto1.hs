@@ -403,3 +403,28 @@ primIguales' xs = primIgualesA' (head xs) xs
 
 --PUNTOS ESTRELLA
 
+--LAB 14
+cuantGen :: (b -> b -> b) -> b -> [a] -> (a -> b) -> b
+cuantGen _ base [] _ = base
+cuantGen f base (x:xs) g = f (g x) (cuantGen f base xs g)
+
+paratodo'' :: [a] -> (a -> Bool) -> Bool
+paratodo'' xs p = cuantGen (&&) True xs p
+
+existe'' :: [a] -> (a -> Bool) -> Bool
+existe'' xs p = cuantGen (||) False xs p
+
+sumatoria'' :: [a] -> (a -> Int) -> Int
+sumatoria'' xs p = cuantGen (+) 0 xs p
+
+productoria'' :: [a] -> (a -> Int) -> Int
+productoria'' xs p = cuantGen (*) 1 xs p
+
+
+--LAB 15
+primQueCumplen :: [a] -> (a -> Bool) -> [a]
+primQueCumplen [] p = []
+primQueCumplen (x:xs) p | p x = x : primQueCumplen xs p
+                        | otherwise = []
+
+
