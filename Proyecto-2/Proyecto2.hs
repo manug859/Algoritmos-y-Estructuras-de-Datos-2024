@@ -226,3 +226,41 @@ encolar :: Deportista -> Cola -> Cola
 encolar d VaciaC = (Encolada d VaciaC)
 encolar d (Encolada d1 c) = Encolada d1 (encolar d c)
 
+busca :: Cola -> Zona -> Maybe Deportista
+busca VaciaC z = Nothing
+busca (Encolada d c) z | pertZona z d = Just d
+                       | otherwise = busca c z
+
+
+la_long :: ListaAsoc a b -> Int
+la_long Vacia = 0
+la_long (Nodo a b (xsAsoc)) = 1 + la_long(xsAsoc)
+
+
+la_concat :: ListaAsoc a b -> ListaAsoc a b -> ListaAsoc a b 
+la_concat xs Vacia = xs
+la_concat Vacia xs = xs
+la_concat (Nodo a b xs) ys = (Nodo a b(la_concat xs ys))
+
+
+la_agregar :: Eq a => ListaAsoc a b -> a -> b -> ListaAsoc a b
+la_agregar Vacia clave valor = Nodo clave valor Vacia
+la_agregar (Nodo a b xs) clave valor | (a==clave) = (Nodo a valor xs)
+                                     | otherwise = Nodo a b (la_agregar xs clave valor)
+
+
+la_pares :: ListaAsoc a b -> [(a, b)] 
+la_pares Vacia = []
+la_pares (Nodo a b xs) = (a, b): la_pares xs
+
+
+la_busca :: Eq a => ListaAsoc a b -> a -> Maybe b
+la_busca Vacia x = Nothing
+la_busca (Nodo clave valor xs) x | clave == x = Just valor
+                                 | otherwise = la_busca xs x
+
+
+la_borrar :: Eq a => a -> ListaAsoc a b -> ListaAsoc a b
+la_borrar x Vacia = Vacia
+la_borrar x (Nodo clave valor xs) | (clave==x) = xs
+                                  | otherwise = Nodo clave valor (la_borrar x xs)
