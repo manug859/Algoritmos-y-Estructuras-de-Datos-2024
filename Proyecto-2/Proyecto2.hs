@@ -170,3 +170,41 @@ sum8 xs = gsum8 0 xs
 gsum8 :: Int -> [Int] -> Bool
 gsum8 n [] = n == 8
 gsum8 n (x:xs) = n==8 || gsum8 (n+x) xs
+
+hay_cuad :: Int -> Bool
+hay_cuad n = g_hay_cuad 0 n
+
+g_hay_cuad :: Int -> Int -> Bool
+g_hay_cuad k 0 = k == 0
+g_hay_cuad k n = exp' (n-1) 2 == (k+n) || g_hay_cuad (n+k) (n-1)
+
+--Lab 10
+
+sonidoNatural :: NotaBasica -> Int
+sonidoNatural Do = 0
+sonidoNatural Re = 2
+sonidoNatural Mi = 4
+sonidoNatural Fa = 5 
+sonidoNatural Sol = 7
+sonidoNatural La = 9
+sonidoNatural Si = 11
+
+data Alteracion = Bemol | Natural | Sostenido deriving (Eq, Show) --b) (-1, 0 , 1)
+
+data NotaMusical = Nota NotaBasica Alteracion
+
+sonidoCromatico :: NotaMusical -> Int 
+sonidoCromatico (Nota Do Bemol) = sonidoCromatico (Nota Si Sostenido)
+sonidoCromatico (Nota nota Sostenido) = (sonidoNatural nota) + 1
+sonidoCromatico (Nota nota Natural) = (sonidoNatural nota)
+sonidoCromatico (Nota nota Bemol) = (sonidoNatural nota) - 1
+
+instance Eq NotaMusical 
+    where
+        n1==n2 = sonidoCromatico(n1) == sonidoCromatico(n2)
+        
+instance Ord NotaMusical 
+    where
+        n1<=n2 = sonidoCromatico(n1) <= sonidoCromatico(n2)
+
+
