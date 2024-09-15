@@ -56,14 +56,14 @@ minimoElemento' (x:xs) = min x (minimoElemento' xs)
 type Altura = Int
 type NumCamiseta = Int
 
-data Zona = Arco | Defensa | Mediocampo | Delantera
-data TipoReves = DosManos | UnaMano
-data Modalidad = Carretera | Pista | Monte | BMX
-data PiernaHabil = Izquierda | Derecha
+data Zona = Arco | Defensa | Mediocampo | Delantera deriving Show
+data TipoReves = DosManos | UnaMano deriving Show
+data Modalidad = Carretera | Pista | Monte | BMX deriving Show
+data PiernaHabil = Izquierda | Derecha deriving Show
 
 type ManoHabil = PiernaHabil
 
-data Deportista = Ajedrecista | Ciclista Modalidad | Velocista Altura | Tenista TipoReves ManoHabil Altura | Futbolista Zona NumCamiseta PiernaHabil Altura
+data Deportista = Ajedrecista | Ciclista Modalidad | Velocista Altura | Tenista TipoReves ManoHabil Altura | Futbolista Zona NumCamiseta PiernaHabil Altura deriving Show
 
 --b)
 {-
@@ -207,4 +207,22 @@ instance Ord NotaMusical
     where
         n1<=n2 = sonidoCromatico(n1) <= sonidoCromatico(n2)
 
+
+--LAB 11
+
+primerElemento :: [a] -> Maybe a
+primerElemento [] = Nothing
+primerElemento xs = Just (head xs)
+
+--Lab 12
+
+data Cola = VaciaC | Encolada Deportista Cola deriving Show
+
+atender :: Cola -> Maybe Cola
+atender VaciaC = Nothing
+atender (Encolada d c) = Just c
+
+encolar :: Deportista -> Cola -> Cola
+encolar d VaciaC = (Encolada d VaciaC)
+encolar d (Encolada d1 c) = Encolada d1 (encolar d c)
 
