@@ -231,6 +231,7 @@ busca VaciaC z = Nothing
 busca (Encolada d c) z | pertZona z d = Just d
                        | otherwise = busca c z
 
+data ListaAsoc a b = Vacia | Nodo a b (ListaAsoc a b) deriving Show
 
 la_long :: ListaAsoc a b -> Int
 la_long Vacia = 0
@@ -264,3 +265,18 @@ la_borrar :: Eq a => a -> ListaAsoc a b -> ListaAsoc a b
 la_borrar x Vacia = Vacia
 la_borrar x (Nodo clave valor xs) | (clave==x) = xs
                                   | otherwise = Nodo clave valor (la_borrar x xs)
+
+
+--LAB 13
+
+gsuminM :: Int -> [Int] -> Int
+gsuminM n [] = n
+gsuminM n (x:xs) = min n (gsuminM (n+x) xs)
+
+suminM :: [Int] -> Int
+suminM [] = 0
+suminM xs = gsuminM 0 xs
+
+sumin :: [Int] -> Int
+sumin [] = 0
+sumin (x:xs) = min (suminM xs) (sumin xs)
