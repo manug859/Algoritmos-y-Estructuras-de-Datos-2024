@@ -269,14 +269,17 @@ la_borrar x (Nodo clave valor xs) | (clave==x) = xs
 
 --LAB 13
 
-gsuminM :: Int -> [Int] -> Int
-gsuminM n [] = n
-gsuminM n (x:xs) = min n (gsuminM (n+x) xs)
+gsuminM :: Int -> Int -> [Int] -> Int
+gsuminM n k [] = min n k
+gsuminM n k (x:xs) = gsuminM (min n k) (k + x) xs
 
 suminM :: [Int] -> Int
-suminM [] = 0
-suminM xs = gsuminM 0 xs
+suminM xs = gsuminM maxBound 0 xs
 
 sumin :: [Int] -> Int
 sumin [] = 0
 sumin (x:xs) = min (suminM xs) (sumin xs)
+
+f :: [Int] -> Bool
+f [] = True
+f (x:xs) = exp' (-1) x >= 0 && f xs
