@@ -25,10 +25,7 @@ int main (void) {
     int y = pedir_enteros('y');
     int m = pedir_enteros('m');
     int z = pedir_enteros('z');
-    
     int res = logica(x, y, m, z);
     printf("m = %d", res);
-
-
     return 0;
 }
