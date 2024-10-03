@@ -10,7 +10,7 @@ int pedir_enteros (char var) {
 int iteracion (int i) {
     while(i != 0) {
         printf("i = %d\n", i);
-        i--;
+        i=0;
     }
 }
 
