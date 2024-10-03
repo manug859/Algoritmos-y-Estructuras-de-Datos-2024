@@ -4,6 +4,10 @@ int pedir_enteros (char var) {
     int x;
     printf("Ingrese un valor para %c", var);
     scanf("%d", &x);
+        if (x < 0) {
+            printf("El valor ingresado es negativo, se convertira a positivo\n");
+            x = x * -1;
+        }
     return x;    
 }
 
