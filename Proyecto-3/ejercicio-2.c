@@ -23,3 +23,7 @@ int main (void) {
     printf("Resultado de operacion: x = %d\n", res); // Imprimir el resultado
     return 0;
 }
+
+/*
+falta la ejecución para los ejemplos del practico
+*/
