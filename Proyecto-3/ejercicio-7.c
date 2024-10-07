@@ -23,3 +23,7 @@ int main (void) {
     operacion(x);
     return 0;
 }
+
+/*
+No funciona!
+*/
