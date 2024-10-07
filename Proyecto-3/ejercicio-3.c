@@ -2,7 +2,7 @@
 
 int pedir_enteros (char var) {
     int x;
-    printf("Ingrese un valor para %c", var);
+    printf("Ingrese un valor para %c = ", var);
     scanf("%d", &x);
     return x;
 }
