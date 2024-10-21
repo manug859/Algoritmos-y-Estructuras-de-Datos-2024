@@ -7,7 +7,7 @@ int pedir_entero(char name) {
     return x;
 }
 
-int minino (int x, int y) {
+int minimo (int x, int y) {
     if (x >= y) {
         return y;
     }
@@ -17,5 +17,10 @@ int minino (int x, int y) {
 }
 
 int main(void) {
+    int x = pedir_entero('x');
+    int y = pedir_entero('y');
     
+    int min = minimo(x, y);
+    printf("El minimo entre x e y = %d", min);
+    return 0;
 }
