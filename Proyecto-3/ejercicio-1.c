@@ -15,11 +15,10 @@ int operaciones (int x, int y, int z) {
 
     printf("z * z + y * 45 - 15 * x = %d\n", z * z + y * 45 - 15 * x);
 
-    // Comparaciones booleanas
-    b = (y - 2 == (x * 3 + 1) % 5);
-    
     printf("y / 2 * x = %d\n", y / 2 * x);
 
+    // Comparaciones booleanas
+    b = (y - 2 == (x * 3 + 1) % 5);
     w = (y < x * z);
 
     return 0;
@@ -44,6 +43,5 @@ int main (void) {
     printf("w = ");
     imprimir_booleano(w);
     
-
 return 0;
 }
