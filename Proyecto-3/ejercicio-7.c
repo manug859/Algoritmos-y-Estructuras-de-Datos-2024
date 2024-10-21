@@ -21,7 +21,10 @@ return 0;
 
 int main (void) {
     int x = pedir_entero('x');
-    int y = pedir_entero('y');
-    operacion(x, y);
+    operacion(x);
     return 0;
 }
+
+/*
+No funciona!
+*/
