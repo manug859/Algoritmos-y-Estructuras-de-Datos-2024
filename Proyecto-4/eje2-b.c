@@ -25,7 +25,7 @@ void mul_asig(int x, int y, int z) {
 }
 
 
-int main() {
+int main(void) {
     int x = pedir_entero('x');
     int y = pedir_entero('y');
     int z = pedir_entero('z');

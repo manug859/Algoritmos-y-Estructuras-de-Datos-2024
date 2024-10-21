@@ -16,7 +16,7 @@ void intercambio(int x, int y) {
     printf("El valor de y es: %d\n", y);
 }
 
-int main() {
+int main(void) {
     int x = pedir_entero('x');
     int y = pedir_entero('y');
 

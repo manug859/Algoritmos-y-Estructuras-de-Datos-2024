@@ -12,7 +12,7 @@ bool es_vocal (char letra) {
     return letra == 'a' || letra == 'e' || letra == 'i' || letra == 'o' || letra == 'u';
 }
 
-int main() {
+int main(void) {
     char letra = pedir_letra();
     if (es_vocal(letra)) {
         printf("La letra %c es una vocal\n", letra);

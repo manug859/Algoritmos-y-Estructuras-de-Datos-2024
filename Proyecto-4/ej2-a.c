@@ -18,7 +18,7 @@ void mul_asig(int x, int y) {
     assert(x == X+1 && y == Y+X);
 }
 
-int main() {
+int main(void) {
     int a = pedir_enteros('a');
     int b = pedir_enteros('b');
     mul_asig(a, b);
