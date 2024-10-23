@@ -17,7 +17,7 @@ Suma hasta N pero no inclusive.
 
 int pedir_entero(char name) {
     int x; 
-    printf("Ingrese un valor para %c = ", name);
+    printf("Ingrese un valor entero positivo para %c = ", name);
     scanf("%d", &x);
     return x;
 }
@@ -34,6 +34,11 @@ int sum_hasta (int N) {
 
 int main(void) {
     int x = pedir_entero('x');
+
+    if (x < 0) {
+        printf("Error. \n");
+        x = pedir_entero('x');
+    }
 
     int res = sum_hasta(x);
 
