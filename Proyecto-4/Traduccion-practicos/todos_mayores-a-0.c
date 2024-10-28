@@ -4,7 +4,7 @@ Var pos : Int;
       res  : Bool;
 {P : N ≥ 0}
 res, pos := True, 0;
-	do pos < N →
+	do pos < N -->
 	res, pos := res ∧ A.pos > 0, pos+1
 	od
 { Q : res = ⟨ ∀ i : 0 ≤ i < N : A.i > 0 ⟩ }

@@ -3,7 +3,7 @@ Const N : Int;
 Var res, n : Int;
 {P : N ≥ 0}
 res, n := 0, 0
-	do n ≠ N →
+	do n ≠ N -->
 	      res, n := res + n, n+1
 	od
 { Q : res = ⟨ Σ i : 0 ≤ i < N : i ⟩ }
@@ -35,7 +35,7 @@ int sum_hasta (int N) {
 int main(void) {
     int x = pedir_entero('x');
 
-    if (x < 0) {
+    while (x < 0) {
         printf("Error. \n");
         x = pedir_entero('x');
     }

@@ -3,7 +3,7 @@ Const N : Int;
 Var res, n : Int;
 {P : N ≥ 0}
 res, n := 1, 0
-	do n ≠ N → 
+	do n ≠ N --> 
 		res, n := res * (n+1), n+1
 	od
 {Q : res = N!}
