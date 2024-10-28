@@ -7,7 +7,7 @@ res, pos := False, 0;
 	do pos < N -->
 	res, pos := res ∨ A.pos > 0, pos+1
 	od
-{ Q : res = ⟨ ∀ i : 0 ≤ i < N : A.i > 0 ⟩ }
+{ Q : res = ⟨ ∃ i : 0 ≤ i < N : A.i > 0 ⟩ }
 */
 
 #include <stdio.h>
