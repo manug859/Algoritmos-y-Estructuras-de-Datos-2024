@@ -1,7 +1,7 @@
 /*
 Const N : Int, A : array [0, N) of Int;
 Var pos : Int;
-      res  : Bool;
+    res : Bool;
 {P : N ≥ 0}
 res, pos := False, 0;
 	do pos < N -->
