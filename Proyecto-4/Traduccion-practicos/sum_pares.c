@@ -3,9 +3,9 @@ Const N : Int, A : array[0, N) of Int;
 Var res, pos : Int;
 {P : N ≥ 0}
 res, pos := 0,0
-	do → pos < N
+	do pos < N →
 		if A.pos mod 2 = 0 → res, pos := res + A.pos, pos+1
-		[] A.pos mod 2 ≠ 0 → res, pos := res, pos+1
+		[] A.pos mod 2 ≠ 0 → pos := pos+1
 		fi
     od
 {Q : res = ⟨ Σ i : 0 ≤ i < N ∧ A.i mod 2 = 0 : A.i ⟩ }
