@@ -24,8 +24,13 @@ void operacion (int x, int y, int z) {
 
     assert(x == 2*Y + X && y == Z + X && z == Y / X); // Postcondicion
 
-    printf("x = %d, y = %d, z = %d\n", x, y, z);
+    
 }
+
+void imprimir_enteros(char name, int x) {
+    printf("El valor de %c es: %d\n", name, x);
+}
+
 
 int main(void) {
     int x = pedir_entero('x');
@@ -33,6 +38,10 @@ int main(void) {
     int z = pedir_entero('z');
 
     operacion(x, y, z);
+
+    imprimir_enteros('x', x);
+    imprimir_enteros('y', y);
+    imprimir_enteros('z', z);
 
     return 0;
 }
