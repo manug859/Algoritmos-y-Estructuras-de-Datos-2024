@@ -40,8 +40,10 @@ int main(void) {
     pedir_arreglo(N, a);
 
     int k = pedir_entero('k');
+    assert(k != 0);
 
     int res = multiplo_minimo (a, N, k);
+
     printf("res = %d", res);
     return 0;
 }
