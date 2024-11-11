@@ -47,6 +47,7 @@ int maxima_dif (int tam, int a[]) {
 }
 
 int main (void) {
+    assert (N >= 1);
     int a[N];
 
     pedir_arreglo(N, a);
