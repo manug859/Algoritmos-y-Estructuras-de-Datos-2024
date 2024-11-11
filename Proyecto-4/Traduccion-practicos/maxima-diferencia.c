@@ -11,9 +11,8 @@ Var a : array[0, N) of Int, r : Int;
 
 #include <stdio.h>
 #include <limits.h>
-#include <assert.h>
 
-#define N 2
+#define N 5
 
 void pedir_arreglo(int tam, int a[]) {
     int i = 0;
@@ -47,7 +46,6 @@ int maxima_dif (int tam, int a[]) {
 }
 
 int main (void) {
-    assert (N >= 2);
     int a[N];
 
     pedir_arreglo(N, a);
