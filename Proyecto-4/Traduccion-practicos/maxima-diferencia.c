@@ -51,7 +51,11 @@ int main (void) {
     pedir_arreglo(N, a);
 
     int r = maxima_dif(N, a);
-    printf("r = %d ", r);
-
+    if (r == INT_MIN) {
+        printf("-INF");
+    }
+    else {
+        printf("r = %d ", r);
+    }
     return 0;
 }
