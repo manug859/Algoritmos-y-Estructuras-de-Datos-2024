@@ -12,7 +12,7 @@ Var a : array[0, N) of Int, r : Int;
 #include <stdio.h>
 #include <limits.h>
 
-#define N 5
+#define N 4
 
 void pedir_arreglo(int tam, int a[]) {
     int i = 0;
