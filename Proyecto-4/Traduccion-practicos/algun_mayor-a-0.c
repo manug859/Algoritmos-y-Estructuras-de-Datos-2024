@@ -27,7 +27,7 @@ void pedir_arreglo (int tam, int a[]) {
 bool algun_mayor_cero (int tam, int a[]) {
     int pos = 0;
     bool res = false;
-    while (pos < tam) {
+    while (pos < tam && !res) {
         res = res || a[pos] > 0;
         pos = pos + 1;
     }
