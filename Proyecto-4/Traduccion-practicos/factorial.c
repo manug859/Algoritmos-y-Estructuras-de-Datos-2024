@@ -9,6 +9,8 @@ res, n := 1, 0
 {Q : res = N!}
 */
 
+#include <stdio.h>
+
 int pedir_entero(char name) {
     int x;
     printf("Ingrese un valor para %c = ", name);
