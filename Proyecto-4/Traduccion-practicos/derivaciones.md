@@ -1,3 +1,4 @@
+```latex
 Nota: en el libro de cálculo está este mismo ejercicio pero con la pre como \( N \geq 1 \)
 
 \[
@@ -45,3 +46,4 @@ r, s, n := -\infty, a.0, 1
 \[
 \{Q : r = \langle \max_{p, q} : 0 \le p < q < N : a.p - a.q \rangle \}
 \]
+```
